@@ -144,7 +144,7 @@ const MathQuestionGame = () => {
             </div>
             <h3><span className="remaining-time">Time remaining:</span> 00:{time === 10 ? time : `0${time}`}</h3>
             {answerText && answerColor(answerText)}
-            {result && <h4>Your answer took you <strong style={{color: "blueviolet"}}>{result}</strong> second(s)</h4>}
+            {result && <h4>The answer took <strong style={{color: "blueviolet", fontSize: "25px"}}>{result}</strong> second(s)</h4>}
         </div>
     );
 };
