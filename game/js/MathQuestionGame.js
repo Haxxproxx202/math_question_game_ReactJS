@@ -91,7 +91,7 @@ const MathQuestionGame = () => {
                     clearInterval(intervalID);
                     setBlockButtons(true);//TODO
                     if (!answerText) {
-                        setAnswerText("Time's up");
+                        setAnswerText("Time's up!");
                     }
                     return 0;
                 }
