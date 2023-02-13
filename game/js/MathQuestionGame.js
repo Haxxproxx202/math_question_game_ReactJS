@@ -42,13 +42,13 @@ const MathQuestionGame = () => {
 
     const generateAnswerText = () => {
         if (answer === calculator(numA, numB, operation)) {
-            setAnswerText("Gratulacje");
+            setAnswerText("Congratulations!");
             setBlockButtons(true);
             setPassedTime(3);
             setTime(0);
         }
         else {
-            setAnswerText("Błędna odpowiedz");
+            setAnswerText("Wrong answer...");
             setBlockButtons(true);
             setTime(0);
             setPassedTime(3);
@@ -91,7 +91,7 @@ const MathQuestionGame = () => {
                     clearInterval(intervalID);
                     setBlockButtons(true);//TODO
                     if (!answerText) {
-                        setAnswerText("Czas minął");
+                        setAnswerText("Time's up");
                     }
                     return 0;
                 }
@@ -119,7 +119,7 @@ const MathQuestionGame = () => {
     }
 
     const answerColor = (answer) => {
-        if (answer === "Gratulacje") {
+        if (answer === "Congratulations!") {
             return <h1 style={{color: "green"}}>{answerText}</h1>
         } else {
             return <h1 style={{color: "red"}}>{answerText}</h1>
@@ -128,7 +128,7 @@ const MathQuestionGame = () => {
     return (
         <div>
             <button onClick={startAgain}>Start again</button>
-            <h1>{numA} {operation} {numB} =</h1>
+            <h1>{numA} {operation} {numB} = </h1>
             <div>
                 {
                     buttonTab.map((el, index) => {
@@ -142,9 +142,9 @@ const MathQuestionGame = () => {
                     } )
                 }
             </div>
-            <h3>00:{time === 10 ? time : `0${time}`}</h3>
+            <h3><span className="remaining-time">Time remaining:</span> 00:{time === 10 ? time : `0${time}`}</h3>
             {answerText && answerColor(answerText)}
-            {result && <h4>Twoja odpowiedź zajęła Ci <strong style={{color: "blueviolet"}}>{result}</strong> sekundy</h4>}
+            {result && <h4>Your answer took you <strong style={{color: "blueviolet"}}>{result}</strong> second(s)</h4>}
         </div>
     );
 };
