@@ -23,6 +23,8 @@ const MathQuestionGame = () => {
     const [answerText, setAnswerText] = useState(false);
     const [passedTime, setPassedTime] = useState(3);
     const [result, setResult] = useState("");
+    const [scored, setScored] = useState(0);
+    const [missed, setMissed] = useState(0);
 
     const calculator = (num1, num2, operation) => {
         switch (operation) {
@@ -46,12 +48,14 @@ const MathQuestionGame = () => {
             setBlockButtons(true);
             setPassedTime(3);
             setTime(0);
+            setScored(prevState => prevState + 1)
         }
         else {
             setAnswerText("Wrong answer...");
             setBlockButtons(true);
             setTime(0);
             setPassedTime(3);
+            setMissed(prevState => prevState + 1)
         }
     }
 
@@ -92,6 +96,7 @@ const MathQuestionGame = () => {
                     setBlockButtons(true);//TODO
                     if (!answerText) {
                         setAnswerText("Time's up!");
+                        setMissed(prevState => prevState + 1)
                     }
                     return 0;
                 }
@@ -118,6 +123,11 @@ const MathQuestionGame = () => {
         setResult("");
     }
 
+    const reset = () => {
+        setMissed(0);
+        setScored(0)
+    }
+
     const answerColor = (answer) => {
         if (answer === "Congratulations!") {
             return <h1 style={{color: "green"}}>{answerText}</h1>
@@ -127,6 +137,19 @@ const MathQuestionGame = () => {
     }
     return (
         <div>
+            <div className="player-results">
+                <div className="scoreline">Scoreline</div>
+                <div>
+                    <img className="thumbs-up-down" src="../css/thumbsup.png" alt="not found" />
+                    <span className="results">= {scored}</span>
+                </div>
+                <div>
+                    <img className="thumbs-up-down" src="../css/thumbsdown.png" alt="not found" />
+                    <span className="results">= {missed}</span>
+                </div>
+                <div className="reset" onClick={reset}>reset</div>
+            </div>
+
             <button onClick={startAgain}>Start again</button>
             <h1>{numA} {operation} {numB} = </h1>
             <div>

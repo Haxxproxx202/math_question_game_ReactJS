@@ -45,3 +45,40 @@ h4 {
     font-size: 20px;
     color: black;
 }
+.player-results {
+    position: absolute;
+    text-align: center;
+    right: 50px;
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+    border: 1px double black;
+    border-radius: 10px;
+    background-color: lightgray;
+
+}
+.thumbs-up-down {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+.scoreline {
+    font-weight: bold;
+    font-size: 17px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.reset {
+    margin-top: 15px;
+    cursor: pointer;
+    color: darkred;
+    font-weight: bold;
+}
+
+.results {
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 45px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
