@@ -14,7 +14,6 @@ clicked on the correct number or not. Numbers and an operator are randomly drawn
 > - The app will be accessible at: [http:/localhost:3000](http:/localhost:3000)
 
 ## Technology Used
-The app was built using the following library:
 - ReactJS
 
 ## Visuals
